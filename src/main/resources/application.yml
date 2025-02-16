@@ -1,6 +1,3 @@
-server:
-  port: 4410
-
 spring:
   datasource:
     url: jdbc:h2:mem:book-db
