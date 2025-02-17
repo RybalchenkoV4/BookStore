@@ -24,13 +24,14 @@ public class BookController {
     private final FileGateway fileGateway;
 
     private void writeCallToFile() {
-        fileGateway.writeToFile(
-                new Throwable()
-                        .getStackTrace()[1]
-                        .getMethodName() + ".txt",
+
+        String message = new Throwable()
+                .getStackTrace()[1]
+                .getMethodName() + " - " +
                 LocalDateTime.now()
-                        .format(DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss"))
-        );
+                        .format(DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss"));
+
+        fileGateway.writeToFile("usedMethods.txt", message);
     }
 
     @GetMapping
