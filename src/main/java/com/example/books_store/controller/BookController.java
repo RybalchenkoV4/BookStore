@@ -48,13 +48,13 @@ public class BookController {
     }
 
     @PostMapping
-    public Book save(@RequestBody Book book) {
+    public Book createBook(@RequestBody Book book) {
         writeCallToFile();
         return service.save(book);
     }
 
     @PutMapping("/{id}")
-    public Book update(@RequestBody Book book, @PathVariable Long id) {
+    public Book updateBook(@RequestBody Book book, @PathVariable Long id) {
         book.setId(id);
         writeCallToFile();
         return service.save(book);
